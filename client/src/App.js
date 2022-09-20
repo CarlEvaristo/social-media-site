@@ -1,20 +1,23 @@
 import React from "react"
+import "./App.css"
+import NavBar from "./components/NavBar"
 import Home from "./pages/Home"
-import Contact from "./pages/Contact"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-
-import './App.css';
+import Info from "./pages/Info"
+import Register from "./pages/Register"
+import { Routes, Route, Link } from "react-router-dom"
 
 export default function App() {
 
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route exact path="/" element={ <Home /> } />
-          <Route path="/contact" element={  <Contact /> } /> 
-        </Routes>
-      </Router>
-    </div>
+      <div className="app">
+        <NavBar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/info" element={<Info/>} />
+            <Route path="/register" element={<Register/>} />
+          </Routes>
+        </main>
+      </div>
   )
 } 
