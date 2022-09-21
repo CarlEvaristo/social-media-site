@@ -1,7 +1,35 @@
 .app{
+    display:flex;
     width:100vw;
     min-height: 100vh;
+    display:grid;
+    grid-template-rows: 10vh auto;
+    grid-template-columns: 25vw auto 25vw;  
+    grid-template-areas: 
+        "header header header"
+        "leftbar main rightbar";
+    background-color: #f0f2f5;
 }
-main {
-    text-align: center;
+.leftSection {
+    width:25vw;
+    position: fixed;
+    top: 10vh;
+    grid-area: leftbar;
 }
+.rightSection{
+    width:25vw;
+    position: fixed;
+    top: 10vh;
+    right:0;
+    grid-area: rightbar;
+}
+.mainSection {
+    padding-top: 1vh;
+    grid-area: main;
+    overflow-y: auto;
+    top: 10vh;
+}
+.simplebar-scrollbar::before {
+    background-color: rgb(231, 231, 231);
+  }
+
