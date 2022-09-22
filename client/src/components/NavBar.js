@@ -10,7 +10,8 @@ export default function NavBar() {
     return (
         <div className='navbar'>
             <div className='navlogo'>
-
+                <img src="/images/logo.jpg" alt="logo" style={{width:"50px"}}/> 
+                <h1>PostOwl</h1>
             </div>
 
             <div className="navmenu">
@@ -19,10 +20,10 @@ export default function NavBar() {
 
                 {!context.username ?
                     <>
-                        <Link className={`navLink ${location === "/login" ? "active" : ""}`} to="/login"><i class="fa-regular fa-user"></i>  Login</Link>
+                        <Link className={`navLink ${location === "/login" ? "active" : ""}`} to="/login"><i className="fa-regular fa-user"></i>  Login</Link>
                         <Link className={`accentLink ${location === "/register" ? "active" : ""}`} to="/register">Sign up for free</Link>
                     </>  :
-                        <Link className={`navLink ${location === "/profile" ? "active" : ""}`} to="/profile"><i class="fa-solid fa-user"></i>  {context.username}</Link>
+                        <Link className={`navLink ${location === "/profile" ? "active" : ""}`} to="/profile"><i className="fa-solid fa-user"></i>  {context.username}</Link>
                 }
             </div>
 

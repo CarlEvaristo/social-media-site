@@ -23,7 +23,7 @@
     width: 100%;
     font-size: 2rem;
     border: none;
-    border-radius:50px;
+    border-radius:5px;
 }
 input{
     background-color: #f0f2f5;
@@ -33,6 +33,7 @@ input:hover{
     background-color: #e2e2e2;
 }
 button {
+    border-radius:50px;
     background-color: #f0f2f5;
 }
 button:hover{

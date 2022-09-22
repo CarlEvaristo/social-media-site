@@ -4,6 +4,7 @@
     background-color: #f0f2f55e;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 main {
     min-height:100vh;

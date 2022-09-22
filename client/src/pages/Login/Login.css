@@ -24,7 +24,7 @@
     width:100%;
     font-size: 2rem;
     border: none;
-    border-radius:50px;
+    border-radius:5px;
 }
 .loginForm input:focus {
     font-size: 2rem;
@@ -36,7 +36,10 @@ input{
 input:hover{
     background-color: #e2e2e2;
 }
-
+button{
+    border-radius:50px;
+    max-width:500px;
+}
 button:active{
     background-color: #6ca7ff;
 }

@@ -21,7 +21,7 @@ export default function Register() {
         if (res.data.insertId) {  //check if response has an id => indicates it was successful
           context.userSetter(user)
           setUser({})
-          navigate('/ ')	
+          navigate('/posts')	
         } else {
           setErrorMsg("Username already taken.")
         }
@@ -32,8 +32,8 @@ export default function Register() {
     <div className='register'>
       <h1>Registration</h1>
       <form className="registerForm" onSubmit={handleClick}>
-        <input name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="6" required={true} />
-        <input name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="6" required={true} />
+        <input name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />
+        <input name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
         <button>Register</button>
       </form>
       <h3 style={{color:"red"}}>{errorMsg}</h3>

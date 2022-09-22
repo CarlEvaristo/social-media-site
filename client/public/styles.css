@@ -11,7 +11,10 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 p{
-    margin:0.5em;
+    margin:0.5em 0;
+}
+a {
+    text-decoration: none;
 }
 .main {
     padding:2em;

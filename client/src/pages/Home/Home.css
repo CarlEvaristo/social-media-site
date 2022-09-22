@@ -1,7 +1,8 @@
 .home {
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     display:grid;
+    grid-template-rows: 0 auto;
     grid-template-columns: 25vw auto 25vw;  
     grid-template-areas: 
         "header header header"
@@ -10,32 +11,81 @@
 }
 .mainSection {
     width:100%;
+    min-height: 100%;
     padding:2em;
     grid-area: main;
     overflow-y: auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 .leftSection {
-    width:25vw;
+    width:20vw;
+    min-height: 90vh;
     position: fixed;
     left:0;
-    padding:2em;
+    padding:2em 0.3em 2em 2em;
     grid-area: leftbar;
     background-color: #fff;
+
 }
 .rightSection{
-    width:25vw;
+    width:20vw;
+    min-height: 90vh;
     position: fixed;
     right:0;
-    padding:2em;
+    padding:2em 0.3em 2em 2em;
     grid-area: rightbar;
     background-color: #fff;
 }
 .simplebar-scrollbar::before {
     background-color: rgb(231, 231, 231);
 }
+.post{
+    max-width: 500px;
+    width:90%;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-bottom:2em;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+}
+.post h2 {
+    margin: 0.5em 0;
+}
+
+.post img {
+    max-width:100%;
+}
+
+.sideMenu {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.sideMenu div {
+    width:100%;
+    padding:1em 1em 1em 0;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
+.sideMenu div:hover {
+    background-color: rgb(231, 231, 231);
+}
+.sideMenu a{
+}
+
 
 @media (max-width:1000px) {
-    .leftSection, .rightSection {
+    .home {
+        display: flex;
+    }
+    .leftSection, .rightSection, .leftMenu {
         display: none;
     }
     .mainSection {

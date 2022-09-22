@@ -2,7 +2,7 @@ import React from 'react'
 import "./Login.css"
 import Axios from "axios"
 import { UserContext } from '../../userContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function Login() {
   const context = React.useContext(UserContext)
@@ -29,7 +29,7 @@ export default function Login() {
         if (res.data[0].password === user.password) {
           context.userSetter(user)
           setUser({})
-          navigate("/")
+          navigate("/posts")
         } else {
           setErrorMsg("Invalid password...")
         }
@@ -51,10 +51,11 @@ export default function Login() {
       {!context.username ? 
         <>
           <form className="loginForm" onSubmit={handleLogin}>
-            <input name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="6" required={true} />  
-            <input name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="6" required={true} />
+            <input name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />  
+            <input name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
             <button>Login</button>
           </form>
+          <Link to="/register"><p>No account yet? Please Sign up!</p></Link>
           <h3 style={{color:"red"}}>{errorMsg}</h3>
         </>
         :

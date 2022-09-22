@@ -16,6 +16,12 @@
     display:flex;
     justify-content: flex-start;
     align-items: center;
+    gap:20px;
+}
+.navlogo h1{
+    font-family: 'Oleo Script', cursive;
+    margin:0;
+    color:#000;
 }
 .navmenu{
     display:flex;
@@ -23,6 +29,9 @@
     margin:0 0 0 auto;
 }
 .navLink {
+    display:flex;
+    gap:10px;
+    white-space: nowrap;
     text-decoration: none;
     font-size: 2rem;
     padding: 2em 1em;
@@ -36,6 +45,10 @@
     color:rgb(73, 73, 73); 
 }
 .accentLink {
+    display:flex;
+    white-space: nowrap;
+    gap:10px;
+    justify-content: space-between;
     text-decoration: none;
     font-size: 2rem;
     padding: 0.5em 1em;
