@@ -17,4 +17,10 @@ router.post("/login", (req,res)=> {
     (err,result) => err ? res.send(err) : res.send(result))
 })
 
+router.get("/users", (req,res)=> {
+    db.query("SELECT * FROM users ", 
+    (err,result) => err ? res.send(err) : res.send(result))
+})
+
+
 export default router

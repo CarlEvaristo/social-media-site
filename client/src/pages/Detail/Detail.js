@@ -4,6 +4,7 @@ import { UserContext } from '../../userContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import Axios from "axios"
 import { Image, Transformation } from 'cloudinary-react';
+import ScrollTop  from "../hooks/useScrollTop"
 
 export default function Detail() {
     const context = React.useContext(UserContext)
@@ -12,8 +13,9 @@ export default function Detail() {
     const [post, setPost] = React.useState({})
 
     React.useEffect(()=> {
-      Axios.get(`http://localhost:3001/posts/${id}`)
-        .then(res => setPost(res.data[0]))
+        ScrollTop()
+        Axios.get(`http://localhost:3001/posts/${id}`)
+            .then(res => setPost(res.data[0]))
     },[])
 
     return (
