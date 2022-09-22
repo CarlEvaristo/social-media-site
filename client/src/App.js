@@ -2,43 +2,29 @@ import React from "react"
 import "./App.css"
 import NavBar from "./components/NavBar"
 import Home from "./pages/Home/Home"
-import Info from "./pages/Info/Info"
+import Upload from "./pages/Upload/Upload"
+import Login from "./pages/Login/Login"
 import Register from "./pages//Register/Register"
+import Profile from "./pages/Profile/Profile"
 import { Routes, Route, Link } from "react-router-dom"
-
-// npm install simplebar-react
-import SimpleBarReact from "simplebar-react";
-import "simplebar/src/simplebar.css";
-
-import LeftMenu from "./components/LeftMenu"
-import RightMenu from "./components/RightMenu"
 
 export default function App() {
 
   return (
       <div className="app">
           <NavBar/>
-          
-          <section className="leftSection">
-            <SimpleBarReact style={{ height: "90vh" }} >
-              <LeftMenu />
-            </SimpleBarReact>
-          </section>
 
-          <section className="mainSection">
+          <main>
             <Routes>
               <Route path="/" element={<Home/>} />
-              <Route path="/info" element={<Info/>} />
+              <Route path="/upload" element={<Upload/>} />
+
+              <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register/>} />
+              <Route path="/profile" element={<Profile/>} />
             </Routes>
-          </section>
-
-          <section className="rightSection">
-            <SimpleBarReact style={{ height: "90vh" }}>
-              <RightMenu />
-            </SimpleBarReact>
-          </section>
-
+          </main>
+          
       </div>
   )
 } 

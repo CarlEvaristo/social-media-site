@@ -1,35 +1,11 @@
 .app{
-    display:flex;
-    width:100vw;
+    width: 100%;
     min-height: 100vh;
-    display:grid;
-    grid-template-rows: 10vh auto;
-    grid-template-columns: 25vw auto 25vw;  
-    grid-template-areas: 
-        "header header header"
-        "leftbar main rightbar";
-    background-color: #f0f2f5;
+    background-color: #f0f2f55e;
+    display: flex;
+    flex-direction: column;
 }
-.leftSection {
-    width:25vw;
-    position: fixed;
-    top: 10vh;
-    grid-area: leftbar;
+main {
+    min-height:100vh;
+    padding-top: 10vh;
 }
-.rightSection{
-    width:25vw;
-    position: fixed;
-    top: 10vh;
-    right:0;
-    grid-area: rightbar;
-}
-.mainSection {
-    padding-top: 1vh;
-    grid-area: main;
-    overflow-y: auto;
-    top: 10vh;
-}
-.simplebar-scrollbar::before {
-    background-color: rgb(231, 231, 231);
-  }
-

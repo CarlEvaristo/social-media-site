@@ -1,6 +1,11 @@
 .leftMenu {
-    padding:2em;
     display:flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+@media (max-width:800px) {
+    .leftMenu {
+        align-items: center;
+    }
 }

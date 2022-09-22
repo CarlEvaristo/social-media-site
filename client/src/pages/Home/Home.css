@@ -1,6 +1,49 @@
 .home {
+    width: 100%;
+    min-height: 100vh;
+    display:grid;
+    grid-template-columns: 25vw auto 25vw;  
+    grid-template-areas: 
+        "header header header"
+        "leftbar main rightbar";
+    background-color: #f0f2f55e;
+}
+.mainSection {
+    width:100%;
     padding:2em;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+    grid-area: main;
+    overflow-y: auto;
+}
+.leftSection {
+    width:25vw;
+    position: fixed;
+    left:0;
+    padding:2em;
+    grid-area: leftbar;
+    background-color: #fff;
+}
+.rightSection{
+    width:25vw;
+    position: fixed;
+    right:0;
+    padding:2em;
+    grid-area: rightbar;
+    background-color: #fff;
+}
+.simplebar-scrollbar::before {
+    background-color: rgb(231, 231, 231);
+}
+
+@media (max-width:1000px) {
+    .leftSection, .rightSection {
+        display: none;
+    }
+    .mainSection {
+        width:100vw;
+    }
+    .app {
+        grid-template-areas: 
+        "header header header"
+        "main main main"
+    }
 }

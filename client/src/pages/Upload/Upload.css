@@ -1,4 +1,4 @@
-.register {
+.upload {
     height:100%;
     padding:2em;
     padding-top: 10vh;
@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
 }
-.registerForm{
+.uploadForm{
     max-width: 500px;
     width:100%;
     display:flex;
@@ -18,7 +18,7 @@
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.registerForm input, button {
+.uploadForm input, button {
     padding:1em 1.5em;
     width: 100%;
     font-size: 2rem;
