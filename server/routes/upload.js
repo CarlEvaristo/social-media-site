@@ -8,8 +8,9 @@ router.post("/", (req,res)=> {
     const description = req.body.description
     const image = req.body.image
     const author = req.body.author
+    const date = req.body.date
 
-    db.query("INSERT INTO posts (title,description,image,author) VALUES (?,?,?,?)", [title, description, image, author],
+    db.query("INSERT INTO posts (title,description,image,author,date) VALUES (?,?,?,?,?)", [title, description, image, author, date],
     (err,result) => err ? res.send(err) : res.send(result))
 })
 

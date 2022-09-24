@@ -3,6 +3,7 @@ import "./Register.css"
 import Axios from "axios"
 import { UserContext } from '../../userContext'
 import { useNavigate } from 'react-router-dom'
+import ScrollTop from '../../hooks/useScrollTop';
 
 export default function Register() {
   const [user, setUser] = React.useState({})
@@ -10,6 +11,10 @@ export default function Register() {
   const [errorMsg, setErrorMsg] = React.useState("")
   const navigate = useNavigate()
   
+  React.useEffect(()=> {
+    ScrollTop()
+  },[])
+
   function handleChange(event){
     const {name,value} = event.target
     setUser(prevData => ({...prevData, [name]:value}))
@@ -32,9 +37,9 @@ export default function Register() {
     <div className='register'>
       <h1>Registration</h1>
       <form className="registerForm" onSubmit={handleClick}>
-        <input name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />
-        <input name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
-        <button>Register</button>
+        <input className="registerInput" name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />
+        <input className="registerInput" name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
+        <button className="registerBtn">Register</button>
       </form>
       <h3 style={{color:"red"}}>{errorMsg}</h3>
     </div>

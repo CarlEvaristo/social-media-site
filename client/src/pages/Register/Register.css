@@ -18,27 +18,28 @@
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.registerForm input, button {
+.registerInput, .registerBtn {
     padding:1em 1.5em;
     width: 100%;
     font-size: 2rem;
     border: none;
     border-radius:5px;
 }
-input{
+.registerInput{
     background-color: #f0f2f5;
     margin-bottom: 1em;
 }
-input:hover{
+.registerInput:hover{
     background-color: #e2e2e2;
 }
-button {
+.registerBtn {
     border-radius:50px;
     background-color: #f0f2f5;
+    cursor: pointer;
 }
-button:hover{
+.registerBtn:hover{
     background-color: #b3d1ff;
 }
-button:active{
+.registerBtn:active{
     background-color: #6ca7ff;
 }

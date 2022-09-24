@@ -1,6 +1,6 @@
 import React from "react"
 import "./App.css"
-import NavBar from "./components/NavBar"
+import NavBar from "./components/NavBar/NavBar"
 import Home from "./pages/Home/Home"
 import Posts from "./pages/Posts/Posts"
 import Upload from "./pages/Upload/Upload"
@@ -8,7 +8,7 @@ import Login from "./pages/Login/Login"
 import Register from "./pages//Register/Register"
 import Detail from "./pages/Detail/Detail"
 import Profile from "./pages/Profile/Profile"
-import Footer from "./components/Footer"
+import Footer from "./components/Footer/Footer"
 import { Routes, Route, Link } from "react-router-dom"
 
 export default function App() {
@@ -28,9 +28,8 @@ export default function App() {
               <Route path="/register" element={<Register/>} />
               <Route path="/profile" element={<Profile/>} />
             </Routes>
+            <Footer/>
           </main>
-
-          <Footer/>
       </div>
   )
 } 

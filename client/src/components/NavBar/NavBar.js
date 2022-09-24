@@ -1,7 +1,7 @@
 import React from 'react'
 import "./NavBar.css"
 import { Link, useLocation } from "react-router-dom"
-import { UserContext } from '../userContext'
+import { UserContext } from '../../userContext'
 
 export default function NavBar() {
     const context = React.useContext(UserContext)
@@ -10,12 +10,16 @@ export default function NavBar() {
     return (
         <div className='navbar'>
             <div className='navlogo'>
-                <img src="/images/logo.jpg" alt="logo" style={{width:"50px"}}/> 
-                <h1>PostOwl</h1>
+                <Link className={`navLink ${location === "/" ? "active" : ""}`} to="/">
+                    <img src="/images/logo.jpg" alt="logo" style={{width:"50px"}}/> 
+                    <h1>PostOwl</h1>
+                </Link>
             </div>
 
             <div className="navmenu">
                 <Link className={`navLink ${location === "/" ? "active" : ""}`} to="/">Home</Link>
+                {/* <Link className={`navLink ${location === "/posts" ? "active" : ""}`} to="/posts">Posts</Link> */}
+
                 <Link className={`navLink ${location === "/upload" ? "active" : ""}`} to="/upload">Upload</Link>
 
                 {!context.username ?

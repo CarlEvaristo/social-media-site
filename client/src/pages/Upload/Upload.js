@@ -3,6 +3,7 @@ import "./Upload.css"
 import Axios from "axios"
 import { UserContext } from '../../userContext'
 import { useNavigate, Link } from 'react-router-dom'
+import ScrollTop from '../../hooks/useScrollTop';
 
 export default function Upload() {
   const [post, setPost] = React.useState({
@@ -22,6 +23,10 @@ export default function Upload() {
     setPost(prevData => ({...prevData, [name]:value}))
   }
 
+  React.useEffect(()=> {
+    ScrollTop()
+  },[])
+  
   function upload() {
     setLoading(true)
     const cloudinaryURL = 'https://api.cloudinary.com/v1_1/drga36mnw/image/upload'  //drga36mnw IS MY CLOUDINARY ID 
@@ -34,15 +39,18 @@ export default function Upload() {
         .then(function(response) {
             console.log("CLOUDINARY RESPONSE: ", response.data.public_id)        // GET ID OF CLOUDINARY IMAGE FILENAME AND SAVE TO POST STATE
             console.log("USER: ", context.username)
+            const newDate = new Date()
+            console.log(newDate)
             Axios.post("http://localhost:3001/upload", {                         // SEND POST TO BACKEND   
                 ...post, 
                 image:response.data.public_id,
-                author:context.username
+                author:context.username,
+                date: newDate
             })                        
              .then(response => {
                 setLoading(false)
                 console.log("BACKEND RESPONSE: ", response)
-                navigate("/posts")
+                navigate("/")
             })    
         })
         .catch(function(error) {
@@ -56,12 +64,12 @@ export default function Upload() {
       {loading ? <img src="/images/loader.gif" style={{width:"50px"}} alt="loader"/>
       :
       context.username ? 
-        <div className="uploadForm">
-            <input name="title" onChange={handleChange} type="text" placeholder='Title...' required={true} />
-            <textarea name="description" onChange={handleChange} type="text" placeholder='Description...' required={true} />
-            <input type="file" onChange={(e) => setImage(e.target.files)}/>
-            <button onClick={upload} >Upload</button>
-        </div> 
+        <form className="uploadForm" onSubmit={upload}>
+            <input className="upLoadInput" name="title" onChange={handleChange} type="text" placeholder='Title...' required={true} />
+            <textarea className="upLoadInput" name="description" onChange={handleChange} type="text" placeholder='Description...' required={true} />
+            <input className="upLoadInput" type="file" onChange={(e) => setImage(e.target.files)} required={true} />
+            <button className="upLoadBtn" >Upload</button>
+        </form> 
         :
         <Link to="/login">Please Login First</Link>
       }

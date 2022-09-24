@@ -60,3 +60,12 @@
     background-color: #125cbe;
 }
 
+@media (max-width:1000px) {
+    .navbar {
+        padding: 0;
+    }
+    .navlogo h1 {
+        font-size:3rem;
+        align-self: center;
+    }
+}

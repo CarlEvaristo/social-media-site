@@ -14,5 +14,4 @@ router.get("/:id", (req,res)=> {
     (err,result) => err ? console.log(err) : res.send(result))
 })
 
-
 export default router

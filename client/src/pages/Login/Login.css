@@ -19,27 +19,31 @@
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.loginForm input, button {
+.loginInput, .loginBtn {
     padding:1em 1.5em;
     width:100%;
     font-size: 2rem;
     border: none;
     border-radius:5px;
 }
-.loginForm input:focus {
+.loginInput:focus {
     font-size: 2rem;
 }
-input{
+.loginInput{
     background-color: #f0f2f5;
     margin-bottom: 1em;
 }
-input:hover{
+.loginInput:hover{
     background-color: #e2e2e2;
 }
-button{
+.loginBtn{
     border-radius:50px;
     max-width:500px;
+    cursor: pointer;
 }
-button:active{
+.loginBtn:hover{
+    background-color: #b3d1ff;
+}
+.loginBtn:active{
     background-color: #6ca7ff;
 }

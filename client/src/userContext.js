@@ -3,12 +3,14 @@ import React from "react"
 const UserContext = React.createContext()
 
 function UserContextProvider(props) {
-    const [username, setUsername] = React.useState(null)
+    const [username, setUsername] = React.useState(
+        window.localStorage.getItem("username") ? window.localStorage.getItem("username") : null
+    )
 
     React.useEffect(()=>{
         window.localStorage.getItem("username") &&
             setUsername(window.localStorage.getItem("username")) 
-    }, [username])
+    })
 
     function userSetter(user) {
         window.localStorage.setItem("username",user.username)

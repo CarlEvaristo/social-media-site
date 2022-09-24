@@ -1,67 +1,51 @@
 import React from 'react'
 import "./Home.css"
-import Axios from 'axios';
-
 //npm install simplebar-react
 //npm install cloudinary-react
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
-import { Image, Transformation } from 'cloudinary-react';
-import { Link, useNavigate } from "react-router-dom"
+import Posts from '../Posts/Posts';
+import UsersList from '../../components/UsersList/UsersList';
+import PostsList from '../../components/PostsList/PostsList';
+import Filter from '../../components/Filter/Filter';
+import ScrollTop from '../../hooks/useScrollTop';
 
 export default function Home() {
-  const [posts, setPosts] = React.useState([])
-  const [users, setUsers] = React.useState([])
-  const navigate = useNavigate()
+  const [sort, setSort] = React.useState("")
+  const [filter, setFilter] = React.useState(null)
 
   React.useEffect(()=> {
-    Axios.get("http://localhost:3001/posts")
-    .then(res => setPosts(res.data))
-
-    Axios.get("http://localhost:3001/user/users")
-    .then(res => setUsers(res.data))
+    ScrollTop()
   },[])
 
-  const postElements = posts.map(post => (
-    <div className="post" key={post.id} onClick={()=>navigate(`/posts/${post.id}`)}>
-      <h2>{post.title}</h2>
-      <p>author: {post.author}</p>
-      <p>{post.description.slice(0,100)}... <Link to={`/posts/${post.id}`}>read more</Link> </p>
-      <Image cloudName="drga36mnw" publicId={post.image}>     //drga36mnw IS MY CLOUDINARY ID
-        <Transformation crop="scale" width="500" />
-      </Image>
-    </div>
-  ))
-
-  const titleElements = posts.map(post => (
-    <div onClick={()=>navigate(`/posts/${post.id}`)} key={post.id}>{post.title} </div> //I used navigate instead of Link, bc I want to have a clickable div
-  ))
-
-  const userElements = users.map(user => (
-    <p key={user.id}>{user.username}</p>
-  ))
-
+  function handleSort(event) {
+    setSort(event.target.value)
+  }
+ 
   return (
     <div className='home'>
 
       <section className="leftSection">
         <SimpleBar style={{ maxHeight: "90vh" }}>
           <div className="sideMenu">
-            <h1>All Posts</h1>
-            {titleElements}
+            <h2>All Posts</h2>
+            <PostsList />
           </div>
         </SimpleBar>
       </section>
 
       <section className="mainSection">
-        {postElements}
+        {/* "default" is no filter / "author" is only logged in users posts */}
+        <Posts sort={sort} filter={filter}/>  
       </section>
       
       <section className="rightSection">
         <SimpleBar style={{ maxHeight: "90vh" }}>
           <div className="sideMenu">
-            <h1>All Users</h1>
-            {userElements}
+            <h2>Filter</h2>
+            <Filter sort={sort} handleSort={handleSort}/>
+            <h2>All Authors</h2>
+            <UsersList setFilter={setFilter} />
           </div>
         </SimpleBar>
       </section>

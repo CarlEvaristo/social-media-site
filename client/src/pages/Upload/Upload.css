@@ -1,14 +1,14 @@
 .upload {
-    height:100%;
+    min-height: 90vh;
     padding:2em;
     padding-top: 10vh;
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .uploadForm{
-    max-width: 500px;
+    max-width: 800px;
     width:100%;
     display:flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.uploadForm input, textarea, button {
+.upLoadInput, .upLoadBtn {
     padding:1em 1.5em;
     width: 100%;
     font-size: 2rem;
@@ -30,23 +30,23 @@ textarea{
     margin-bottom: 1em;
     background-color: #f0f2f5;
 }
-input{
+.upLoadInput{
     background-color: #f0f2f5;
     margin-bottom: 1em;
 }
-input:hover{
+.upLoadInput:hover{
     background-color: #e2e2e2;
 }
 textarea {
     height: 150px;
   }
-button {
+.upLoadBtn {
     border-radius:50px;
     background-color: #f0f2f5;
 }
-button:hover{
+.upLoadBtn:hover{
     background-color: #b3d1ff;
 }
-button:active{
+.upLoadBtn:active{
     background-color: #6ca7ff;
 }

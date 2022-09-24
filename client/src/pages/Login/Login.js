@@ -3,6 +3,7 @@ import "./Login.css"
 import Axios from "axios"
 import { UserContext } from '../../userContext'
 import { useNavigate, Link } from 'react-router-dom'
+import ScrollTop from '../../hooks/useScrollTop';
 
 export default function Login() {
   const context = React.useContext(UserContext)
@@ -12,6 +13,7 @@ export default function Login() {
   const navigate = useNavigate()
 
   React.useEffect(()=>{
+    ScrollTop()
     !context.username ? setLoginMsg("Please Sign-in") :
     setLoginMsg(`User is logged in: ${context.username}`)
   },[context.username])
@@ -51,9 +53,9 @@ export default function Login() {
       {!context.username ? 
         <>
           <form className="loginForm" onSubmit={handleLogin}>
-            <input name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />  
-            <input name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
-            <button>Login</button>
+            <input className="loginInput" name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />  
+            <input className="loginInput" name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
+            <button className="loginBtn">Login</button>
           </form>
           <Link to="/register"><p>No account yet? Please Sign up!</p></Link>
           <h3 style={{color:"red"}}>{errorMsg}</h3>
