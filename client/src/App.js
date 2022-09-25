@@ -8,6 +8,7 @@ import Login from "./pages/Login/Login"
 import Register from "./pages//Register/Register"
 import Detail from "./pages/Detail/Detail"
 import Profile from "./pages/Profile/Profile"
+import Update from "./pages/Update/Update"
 import Footer from "./components/Footer/Footer"
 import { Routes, Route, Link } from "react-router-dom"
 
@@ -23,6 +24,7 @@ export default function App() {
               <Route path="/posts" element={<Posts/>} />
               <Route path="/posts/:id" element={<Detail />} />
               <Route path="/upload" element={<Upload/>} />
+              <Route path="/update/:id" element={<Update/>} />
 
               <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register/>} />

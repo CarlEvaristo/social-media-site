@@ -31,7 +31,7 @@ export default function Login() {
         if (res.data[0].password === user.password) {
           context.userSetter(user)
           setUser({})
-          navigate("/posts")
+          navigate("/profile")
         } else {
           setErrorMsg("Invalid password...")
         }

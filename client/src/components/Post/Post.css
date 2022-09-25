@@ -17,13 +17,25 @@
 .postBox img {
     max-width:100%;
 }
-.deleteBtn{
-    position: absolute;
-    top: 20px;
-    right:20px;
+.subtext {
+    width:100%;
+    font-size:1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3em 1em;
+    background-color: rgb(231, 231, 231);
+}
+.btns{
+    position: relative;
 }
 @media (max-width:1000px) {
     .postBox{
         width:100%;
+    }
+    .btns{
+        position: absolute;
+        top: 40px;
+        right:10px;
     }
 }

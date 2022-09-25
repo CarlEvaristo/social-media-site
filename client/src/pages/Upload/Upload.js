@@ -4,6 +4,7 @@ import Axios from "axios"
 import { UserContext } from '../../userContext'
 import { useNavigate, Link } from 'react-router-dom'
 import ScrollTop from '../../hooks/useScrollTop';
+import NavAdmin from '../../components/NavAdmin/NavAdmin'
 
 export default function Upload() {
   const [post, setPost] = React.useState({
@@ -50,7 +51,7 @@ export default function Upload() {
              .then(response => {
                 setLoading(false)
                 console.log("BACKEND RESPONSE: ", response)
-                navigate("/")
+                navigate("/profile")
             })    
         })
         .catch(function(error) {
@@ -59,20 +60,24 @@ export default function Upload() {
   }
 
   return (
-    <div className='upload'>
-      <h1>Create a post</h1>
-      {loading ? <img src="/images/loader.gif" style={{width:"50px"}} alt="loader"/>
-      :
-      context.username ? 
-        <form className="uploadForm" onSubmit={upload}>
-            <input className="upLoadInput" name="title" onChange={handleChange} type="text" placeholder='Title...' required={true} />
-            <textarea className="upLoadInput" name="description" onChange={handleChange} type="text" placeholder='Description...' required={true} />
-            <input className="upLoadInput" type="file" onChange={(e) => setImage(e.target.files)} required={true} />
-            <button className="upLoadBtn" >Upload</button>
-        </form> 
-        :
-        <Link to="/login">Please Login First</Link>
+    <>
+      {!context.username ? navigate("/login") : 
+        <div className='upload'>
+          <h1>Create a post</h1>
+          {loading ? <img src="/images/loader.gif" style={{width:"50px"}} alt="loader"/>
+          :
+          <>
+            <form className="uploadForm" onSubmit={upload}>
+                <input className="upLoadInput" name="title" onChange={handleChange} type="text" placeholder='Title...' required={true} />
+                <textarea className="upLoadInput" name="description" onChange={handleChange} type="text" placeholder='Description...' required={true} />
+                <input className="upLoadInput" type="file" onChange={(e) => setImage(e.target.files)} required={true} />
+                <button className="upLoadBtn" >Upload</button>
+            </form> 
+            <NavAdmin />
+          </>
+          }
+        </div>
       }
-    </div>
+    </>
   )
 }

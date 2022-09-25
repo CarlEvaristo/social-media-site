@@ -1,11 +1,11 @@
 .sort {
-    padding:1em 1.5em;
-    width: 100%;
+    margin:1em 0;
+    padding:0.5em 1.5em;
     font-size: 2rem;
     border: none;
     border-radius:5px;
     background-color: #f0f2f5;
-    margin-bottom: 1em;
+    cursor: pointer;
 }
 .sort:hover{
     background-color: #e2e2e2;

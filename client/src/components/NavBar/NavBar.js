@@ -6,6 +6,11 @@ import { UserContext } from '../../userContext'
 export default function NavBar() {
     const context = React.useContext(UserContext)
     const location = useLocation().pathname
+    const [menuOn, setMenuOn] = React.useState(false)
+    
+    function toggleMenu() {
+        setMenuOn(prev => !prev)
+    }
 
     return (
         <div className='navbar'>
@@ -16,20 +21,28 @@ export default function NavBar() {
                 </Link>
             </div>
 
-            <div className="navmenu">
-                <Link className={`navLink ${location === "/" ? "active" : ""}`} to="/">Home</Link>
+            <div className={`navmenu ${ menuOn ? "moveDown" : "" }`}>
+                <Link className={`navLink ${location === "/" ? "active" : ""}`} to="/" onClick={toggleMenu}>Home</Link>
                 {/* <Link className={`navLink ${location === "/posts" ? "active" : ""}`} to="/posts">Posts</Link> */}
-
-                <Link className={`navLink ${location === "/upload" ? "active" : ""}`} to="/upload">Upload</Link>
-
                 {!context.username ?
                     <>
-                        <Link className={`navLink ${location === "/login" ? "active" : ""}`} to="/login"><i className="fa-regular fa-user"></i>  Login</Link>
-                        <Link className={`accentLink ${location === "/register" ? "active" : ""}`} to="/register">Sign up for free</Link>
-                    </>  :
-                        <Link className={`navLink ${location === "/profile" ? "active" : ""}`} to="/profile"><i className="fa-solid fa-user"></i>  {context.username}</Link>
+                        <Link className={`navLink ${location === "/login" ? "active" : ""}`} to="/login" onClick={toggleMenu}><i className="fa-regular fa-user"></i>  Login</Link>
+                        <Link className={`navLink accent ${location === "/register" ? "active" : ""}`} to="/register" onClick={toggleMenu}>Sign up for free</Link>
+                    </>  
+                    :
+                    <>
+                        <Link className={`navLink ${location === "/upload" ? "active" : ""}`} to="/upload" onChange={toggleMenu}>New Post</Link>
+                        <p className="navLink" onClick={context.logoutHandler} onChange={toggleMenu}>Logout</p>
+                        <Link className={`navLink ${location === "/profile" ? "active" : ""}`} to="/profile" onClick={toggleMenu}><i className="fa-solid fa-user"></i>  {context.username}</Link>
+                    </>
                 }
             </div>
+
+            <div className={`hamburgerMenu`} onClick={toggleMenu}>
+                    <div className={`hamburgerBar ${menuOn ? "topBar" : undefined}`}></div>
+                    <div className={`hamburgerBar ${menuOn ? "middleBar" : undefined}`}></div>
+                    <div className={`hamburgerBar ${menuOn ? "bottomBar" : undefined}`}></div>
+                </div>
 
         </div>
     )

@@ -4,8 +4,8 @@ import { UserContext } from '../../userContext'
 import { useNavigate } from 'react-router-dom'
 import Posts from '../Posts/Posts'
 import Filter from '../../components/Filter/Filter'
-import Axios from 'axios'
 import ScrollTop from '../../hooks/useScrollTop';
+import NavAdmin from '../../components/NavAdmin/NavAdmin'
 
 export default function Profile() {
     const context = React.useContext(UserContext)
@@ -26,13 +26,7 @@ export default function Profile() {
                 <>  
                     <h1>My Posts</h1>
                     <Posts sort={sort} filter={context.username} /> 
-                    <section className="rightBar">
-                        <div className="sideMenu">
-                            <h2>Filter</h2>
-                            <Filter sort={sort} handleSort={handleSort}/>
-                        </div>
-                        <button className='logoutBtn' onClick={context.logoutHandler}>Logout</button>
-                    </section>
+                    <NavAdmin sort={sort} handleSort={handleSort} />
                 </>
             }
         </div>

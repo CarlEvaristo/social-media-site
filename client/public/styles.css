@@ -7,7 +7,7 @@ html{
 }
 body{
     margin:0;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
 }
 p{
@@ -31,5 +31,4 @@ a {
     align-items: flex-end;
 }
 h1 {
-    margin-top:0;
 }
