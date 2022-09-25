@@ -37,7 +37,7 @@ export default function Register() {
     <div className='register'>
       <h1>Registration</h1>
       <form className="registerForm" onSubmit={handleClick}>
-        <input className="registerInput" name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />
+        <input className="registerInput" name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="3" required={true} />
         <input className="registerInput" name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
         <button className="registerBtn">Register</button>
       </form>

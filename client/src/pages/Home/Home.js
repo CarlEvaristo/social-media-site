@@ -11,7 +11,7 @@ import Filter from '../../components/Filter/Filter';
 import ScrollTop from '../../hooks/useScrollTop';
 
 export default function Home() {
-  const [sort, setSort] = React.useState("")
+  const [sort, setSort] = React.useState("dateDescending")
   const [filter, setFilter] = React.useState(null)
 
   React.useEffect(()=> {

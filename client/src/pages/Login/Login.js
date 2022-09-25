@@ -53,7 +53,7 @@ export default function Login() {
       {!context.username ? 
         <>
           <form className="loginForm" onSubmit={handleLogin}>
-            <input className="loginInput" name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="5" required={true} />  
+            <input className="loginInput" name="username" onChange={handleChange} type="text" placeholder='Username...' minLength="3" required={true} />  
             <input className="loginInput" name="password" onChange={handleChange} type="password" placeholder='Password...' minLength="5" required={true} />
             <button className="loginBtn">Login</button>
           </form>

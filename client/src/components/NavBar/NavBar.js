@@ -21,7 +21,7 @@ export default function NavBar() {
                 </Link>
             </div>
 
-            <div className={`navmenu ${ menuOn ? "moveDown" : "" }`}>
+            <div className={`navmenu ${ menuOn ? "moveDown" : "moveUp" }`}>
                 <Link className={`navLink ${location === "/" ? "active" : ""}`} to="/" onClick={toggleMenu}>Home</Link>
                 {/* <Link className={`navLink ${location === "/posts" ? "active" : ""}`} to="/posts">Posts</Link> */}
                 {!context.username ?
@@ -31,7 +31,8 @@ export default function NavBar() {
                     </>  
                     :
                     <>
-                        <Link className={`navLink ${location === "/upload" ? "active" : ""}`} to="/upload" onChange={toggleMenu}>New Post</Link>
+                        <Link className={`navLink ${location === "/upload" ? "active" : ""}`} to="/upload" onClick={toggleMenu}>New Post</Link>
+                        <Link className={`navLink ${location === "/profile" ? "active" : ""}`} to="/profile" onClick={toggleMenu}>My Posts</Link>
                         <p className="navLink" onClick={context.logoutHandler} onChange={toggleMenu}>Logout</p>
                         <Link className={`navLink ${location === "/profile" ? "active" : ""}`} to="/profile" onClick={toggleMenu}><i className="fa-solid fa-user"></i>  {context.username}</Link>
                     </>

@@ -3,7 +3,7 @@
     min-height: 90vh;
     display:grid;
     grid-template-rows: 0 auto;
-    grid-template-columns: 25vw auto 25vw;  
+    grid-template-columns: 20vw auto 20vw;  
     grid-template-areas: 
         "header header header"
         "leftbar main rightbar";
@@ -12,6 +12,7 @@
 .mainSection {
     width:100%;
     min-height: 100%;
+    padding:2em;
     grid-area: main;
     overflow-y: auto;
     display:flex;

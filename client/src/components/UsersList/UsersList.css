@@ -1,0 +1,12 @@
+.userItem {
+    width:100%;
+    padding: 1em 0;
+    color:#000;
+    padding-left:1em;
+    background-color: red;
+}
+.userItem:hover {
+    width:100%;
+    background-color: rgb(241, 241, 241);
+
+}

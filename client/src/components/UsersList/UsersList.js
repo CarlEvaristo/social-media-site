@@ -11,7 +11,9 @@ export default function Users({setFilter}) {
   },[])
 
   const userElements = users.map(user => {
-    return <div key={user.id} onClick={()=>setFilter(user.username)}>{user.username}</div>
+    return <div key={user.id} onClick={()=>setFilter(user.username)} className="userItem">
+      {user.username}
+    </div>
   })
 
   return userElements

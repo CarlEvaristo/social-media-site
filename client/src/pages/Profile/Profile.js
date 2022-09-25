@@ -10,7 +10,7 @@ import NavAdmin from '../../components/NavAdmin/NavAdmin'
 export default function Profile() {
     const context = React.useContext(UserContext)
     const navigate = useNavigate()
-    const [sort, setSort] = React.useState("")
+    const [sort, setSort] = React.useState("dateDescending")
 
     React.useEffect(()=> {
         ScrollTop()
