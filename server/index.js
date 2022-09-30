@@ -18,6 +18,6 @@ app.use('/like', Like)
 app.use('/delete', Delete)
 app.use('/update', Update)
 
-app.listen(3001, (req,res)=>{
+app.listen(process.env.port || 3001, (req,res)=>{
     console.log("Connected to server on port 3001")
 })
