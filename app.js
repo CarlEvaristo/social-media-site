@@ -1,11 +1,11 @@
 import express from "express"
 import cors from "cors"
-import User from './routes/user.js'
-import Upload from "./routes/upload.js"
-import Posts from "./routes/posts.js"
-import Like from "./routes/like.js"
-import Delete from "./routes/delete.js"
-import Update from "./routes/update.js"
+// import User from './routes/user.js'
+// import Upload from "./routes/upload.js"
+// import Posts from "./routes/posts.js"
+// import Like from "./routes/like.js"
+// import Delete from "./routes/delete.js"
+// import Update from "./routes/update.js"
 
 const app = express()
 app.use(express.json())
