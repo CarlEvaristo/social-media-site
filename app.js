@@ -6,7 +6,7 @@ app.get("/",(req,res)=>{
     res.send("hello")
 })
 
-app.listen(process.env.port || 3001, (req,res)=>{
+app.listen(process.env.PORT || 3001, (req,res)=>{
     console.log("Connected to server on port 3001")
 })
 
