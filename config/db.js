@@ -10,4 +10,4 @@ import mysql from "mysql2"
 
   // db.connect()
 
-export default db
+// export default db
