@@ -22,6 +22,8 @@ app.get("/",(req,res)=>{
 // app.use('/delete', Delete)
 // app.use('/update', Update)
 
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+
 app.listen(process.env.PORT || 3001, (req,res)=>{
     console.log("Connected to server on port 3001")
 })
