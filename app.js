@@ -19,6 +19,9 @@ app.use(cors())
 
 app.use(express.static(path.join(__dirname, './client/build')));
 
+app.get("/hello", (req,res)=>{
+    res.send("hello")
+})
 // app.use('/user', User)
 // app.use('/upload', Upload)
 // app.use('/posts', Posts)
