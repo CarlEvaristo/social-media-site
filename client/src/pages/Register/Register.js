@@ -21,7 +21,7 @@ export default function Register() {
   }
   function handleClick(event){
     event.preventDefault()
-    Axios.post("http://localhost:3001/user/register", user)
+    Axios.post("/user/register", user)
       .then(res => {
         if (res.data.insertId) {  //check if response has an id => indicates it was successful
           context.userSetter(user)
