@@ -1,14 +1,13 @@
 import mysql from "mysql2"
 
-const connection = mysql.createConnection({
+const db = mysql.createConnection({
   host     : process.env.RDS_HOSTNAME,
   user     : process.env.RDS_USERNAME,
   password : process.env.RDS_PASSWORD,
   port     : process.env.RDS_PORT,
-  database : 'ebdb'
 });
 
-connection.connect(function(err) {
+db.connect(function(err) {
   if (err) {
     console.error('Database connection failed: ' + err.stack);
     return;
@@ -16,7 +15,7 @@ connection.connect(function(err) {
   console.log('Connected to database.');
 });
 
-export default connection
+export default db
 
 
 // const db = mysql.createConnection({
