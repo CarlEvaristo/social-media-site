@@ -5,6 +5,8 @@ import { UserContext } from '../../userContext'
 import { useNavigate } from 'react-router-dom'
 import ScrollTop from '../../hooks/useScrollTop';
 
+Axios.defaults.baseURL = 'https://api.example.com';
+
 export default function Register() {
   const [user, setUser] = React.useState({})
   const context = React.useContext(UserContext)
@@ -21,7 +23,7 @@ export default function Register() {
   }
   function handleClick(event){
     event.preventDefault()
-    Axios.post("/user/register", user)
+    Axios.post("http://localhost:3001/user/register", user)
       .then(res => {
         if (res.data.insertId) {  //check if response has an id => indicates it was successful
           context.userSetter(user)
