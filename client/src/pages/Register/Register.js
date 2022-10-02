@@ -5,7 +5,7 @@ import { UserContext } from '../../userContext'
 import { useNavigate } from 'react-router-dom'
 import ScrollTop from '../../hooks/useScrollTop';
 
-Axios.defaults.baseURL = 'https://api.example.com';
+Axios.defaults.baseURL = 'Socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com';
 
 export default function Register() {
   const [user, setUser] = React.useState({})
