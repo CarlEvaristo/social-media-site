@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import ScrollTop from '../../hooks/useScrollTop';
 
 const awsURL = 'Socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com'
-const baseURL = awsURL || 'localhost:3001'
+const baseURL = "" || 'localhost:3001'
 
 export default function Register() {
   const [user, setUser] = React.useState({})
