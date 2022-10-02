@@ -41,7 +41,11 @@ app.get('/*', function (req, res) {
 });
 
 
-app.listen(process.env.PORT || 3001, (req,res)=>{
+app.listen(3001, (req,res)=>{
     console.log("Connected to server on port 3001")
 })
+
+// app.listen(process.env.PORT || 3001, (req,res)=>{
+//     console.log("Connected to server on port 3001")
+// })
 
