@@ -9,14 +9,15 @@ import cors from "cors"
 
 import path from "path"
 
-// import { dirname } from 'path';
-// import { fileURLToPath } from 'url';
-// const __dirname = dirname(fileURLToPath(import.meta.url));
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
      
 const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.use(express.static(path.join(__dirname, './client/build')));
 
 // app.use('/user', User)
 // app.use('/upload', Upload)
