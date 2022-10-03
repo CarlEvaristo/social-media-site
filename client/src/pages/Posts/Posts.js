@@ -11,6 +11,7 @@ export default function Posts({sort, filter}) {
     ScrollTop()
     Axios.get("http://localhost:3001/posts")
     .then(res => setPosts(res.data))
+    .catch(err => console.log("test1", err))
   },[])
 
   function deletePost(postId) {
