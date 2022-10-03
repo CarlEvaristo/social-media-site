@@ -24,6 +24,9 @@ app.use('/like', Like)
 app.use('/delete', Delete)
 app.use('/update', Update)
 
+app.get("/hello", (req,res)=>{
+    res.send("hello")
+})
 app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.listen(process.env.PORT || 3001, (req,res)=>{
