@@ -25,7 +25,8 @@ export default function Login() {
 
   function handleLogin(e){
     e.preventDefault()
-    Axios.post("http://localhost:3001/user/login", user)
+    // Axios.post("http://localhost:3001/user/login", user)
+    Axios.post("/user/login", user)
     .then(res => {
       if (res.data.length > 0) {
         if (res.data[0].password === user.password) {

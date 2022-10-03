@@ -9,15 +9,18 @@ export default function Posts({sort, filter}) {
 
   React.useEffect(()=> {
     ScrollTop()
-    Axios.get("http://localhost:3001/posts")
+    // Axios.get("http://localhost:3001/posts")
+    Axios.get("/posts")
     .then(res => setPosts(res.data))
   },[])
 
   function deletePost(postId) {
-    Axios.delete(`http://localhost:3001/delete/${postId}`)                        
+    // Axios.delete(`http://localhost:3001/delete/${postId}`)                        
+    Axios.delete(`/delete/${postId}`)                        
         .then(res => {
           console.log("delete", postId)
-          Axios.get("http://localhost:3001/posts")
+          // Axios.get("http://localhost:3001/posts")
+          Axios.get("/posts")
             .then(res => setPosts(res.data))
         })  
   }

@@ -18,7 +18,8 @@ export default function Edit() {
     
     React.useEffect(()=> {
         ScrollTop()
-        Axios.get(`http://localhost:3001/posts/${id}`)
+        // Axios.get(`http://localhost:3001/posts/${id}`)
+        Axios.get(`/posts/${id}`)
             .then(res => {
 
                 setPost(res.data[0])
@@ -41,7 +42,8 @@ export default function Edit() {
         Axios.post(cloudinaryURL, formData)                                          // SAVE IMAGE FILENAME TO CLOUDINARY STORAGE   
             .then(function(response) {
                 console.log("CLOUDINARY RESPONSE: ", response.data.public_id)        // GET ID OF CLOUDINARY IMAGE FILENAME AND SAVE TO POST STATE
-                Axios.put("http://localhost:3001/update", {                         // SEND POST TO BACKEND   
+                // Axios.put("http://localhost:3001/update", {                         // SEND POST TO BACKEND   
+                Axios.put("/update", {                 
                     ...post, 
                     image:response.data.public_id
                 })                        
@@ -55,7 +57,8 @@ export default function Edit() {
                 console.log("Cloudinary error: ", error)
             })
         :
-        Axios.put("http://localhost:3001/update", {...post})     //(post keeps original image/date)                   
+        // Axios.put("http://localhost:3001/update", {...post})     //(post keeps original image/date)      
+        Axios.put("/update", {...post})     //(post keeps original image/date)                                
         .then(response => {
             console.log(response)
             setLoading(false)

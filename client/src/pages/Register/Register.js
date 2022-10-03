@@ -1,7 +1,6 @@
 import React from 'react'
 import "./Register.css"
 import Axios from "axios"
-// import Api from "../../Api"
 import { UserContext } from '../../userContext'
 import { useNavigate } from 'react-router-dom'
 import ScrollTop from '../../hooks/useScrollTop';
@@ -25,6 +24,7 @@ export default function Register() {
   }
   function handleClick(event){
     event.preventDefault()
+    // Axios.post("http://localhost:3001/user/register", user)
     Axios.post("/user/register", user)
       .then(res => {
         if (res.data.insertId) {  //check if response has an id => indicates it was successful
