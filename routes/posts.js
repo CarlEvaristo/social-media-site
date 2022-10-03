@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get("/", (req,res)=> {
     db.query("SELECT * FROM posts ", 
-    (err,result) => err ? res.send(err) : res.send(result))
+    (err,result) => err ? console.log(err) : res.send(result))
 })
 
 router.get("/:id", (req,res)=> {
