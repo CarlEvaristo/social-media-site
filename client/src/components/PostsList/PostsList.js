@@ -20,7 +20,7 @@ export default function PostsList() {
     })
   },[])
 
-  const userElements = posts.map(post => {
+  const postElements = posts.map(post => {
     return (
       <Link to={`/posts/${post.id}`} key={post.id} className='postItem' >
         {post.title}
@@ -28,5 +28,5 @@ export default function PostsList() {
     )
   })
 
-  return userElements
+  return postElements
 }
