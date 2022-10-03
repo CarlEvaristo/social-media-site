@@ -24,6 +24,15 @@ app.use('/like', Like)
 app.use('/delete', Delete)
 app.use('/update', Update)
 
+app.use((err,req,res,next)=>{
+    res.status(404).json({
+        error : {
+            message : err.message
+       }
+    });
+ })
+
+ 
 app.get("/hello", (req,res)=>{
     res.send("hello")
 })
