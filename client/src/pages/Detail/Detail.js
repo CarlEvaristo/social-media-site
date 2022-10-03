@@ -15,8 +15,7 @@ export default function Detail() {
 
     React.useEffect(()=> {
         ScrollTop()
-        // Axios.get(`http://localhost:3001/posts/${id}`)
-        Axios.get(`/posts/${id}`)
+        Axios.get(`http://localhost:3001/posts/${id}`)
             .then(res => setPost(res.data[0]))
     },[])
     

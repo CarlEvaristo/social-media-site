@@ -7,13 +7,14 @@ const db = mysql.createConnection({
   port     : process.env.RDS_PORT,
 });
 
-db.connect(function(err) {
-  if (err) {
-    console.error('Database connection failed: ' + err.stack);
-    return;
-  }
-  console.log('Connected to database.');
-});
+// db.connect(function(err) {
+//   if (err) {
+//     console.error('Database connection failed: ' + err.stack);
+//     return;
+//   }
+//   console.log('Connected to database.');
+// });
+db.connect()
 
 export default db
 

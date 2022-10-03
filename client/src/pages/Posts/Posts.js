@@ -6,23 +6,18 @@ import ScrollTop from '../../hooks/useScrollTop';
 
 export default function Posts({sort, filter}) {
   const [posts, setPosts] = React.useState([])
-
-  const baseURL = 'https://localhost:3001'
   
   React.useEffect(()=> {
     ScrollTop()
-    // Axios.get("http://localhost:3001/posts")
-    Axios.get(`${baseURL}/posts`)
+    Axios.get("http://localhost:3001/posts")
     .then(res => setPosts(res.data))
   },[])
 
   function deletePost(postId) {
-    // Axios.delete(`http://localhost:3001/delete/${postId}`)                        
-    Axios.delete(`${baseURL}/delete/${postId}`)                        
+    Axios.delete(`http://localhost:3001/delete/${postId}`)                        
         .then(res => {
           console.log("delete", postId)
-          // Axios.get("http://localhost:3001/posts")
-          Axios.get(`${baseURL}/posts`)
+          Axios.get("http://localhost:3001/posts")
             .then(res => setPosts(res.data))
         })  
   }

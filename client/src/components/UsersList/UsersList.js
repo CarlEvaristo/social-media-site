@@ -5,11 +5,10 @@ import Axios from 'axios'
 export default function Users({setFilter}) {
   const [users, setUsers] = React.useState([])
 
-  const baseURL = 'https://localhost:3001'
+  // const baseURL = 'https://localhost:3001'
 
   React.useEffect(()=> {
-    // Axios.get("http://localhost:3001/user/users")
-    Axios.get(`${baseURL}/user/users`)
+    Axios.get("http://localhost:3001/user/users")
     .then(res => setUsers(res.data))
   },[])
 

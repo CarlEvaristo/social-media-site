@@ -42,8 +42,7 @@ export default function Upload() {
             console.log("USER: ", context.username)
             const newDate = new Date()
             console.log(newDate)
-            // Axios.post("http://localhost:3001/upload", {                         // SEND POST TO BACKEND   
-            Axios.post("/upload", {                         // SEND POST TO BACKEND   
+            Axios.post("http://localhost:3001/upload", {                         // SEND POST TO BACKEND   
                 ...post, 
                 image:response.data.public_id,
                 author:context.username,
