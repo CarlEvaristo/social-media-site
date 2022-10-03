@@ -8,7 +8,7 @@ export default function Users({setFilter}) {
   // const baseURL = 'https://localhost:3001'
 
   React.useEffect(()=> {
-    Axios.get("http://localhost:3001/user/users")
+    Axios.get("/user/users")
     .then(res => setUsers(res.data))
   },[])
 

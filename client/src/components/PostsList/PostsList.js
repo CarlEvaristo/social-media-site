@@ -13,7 +13,7 @@ export default function PostsList() {
   const [posts, setPosts] = React.useState([])
 
   React.useEffect(()=> {
-    Axios.get("http://localhost:3001/posts")
+    Axios.get("/posts")
     .then(res => {
         setPosts(res.data)
     })
