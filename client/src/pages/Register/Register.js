@@ -6,8 +6,8 @@ import { UserContext } from '../../userContext'
 import { useNavigate } from 'react-router-dom'
 import ScrollTop from '../../hooks/useScrollTop';
 
-const awsURL = 'Socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com'
-const baseURL = "" || 'localhost:3001'
+// const awsURL = 'Socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com'
+// const baseURL = awsURL || 'localhost:3001'
 
 export default function Register() {
   const [user, setUser] = React.useState({})
@@ -25,7 +25,7 @@ export default function Register() {
   }
   function handleClick(event){
     event.preventDefault()
-    Axios.post(`${baseURL}/user/register`, user)
+    Axios.post("/user/register", user)
       .then(res => {
         if (res.data.insertId) {  //check if response has an id => indicates it was successful
           context.userSetter(user)
