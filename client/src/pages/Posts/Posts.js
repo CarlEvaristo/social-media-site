@@ -7,7 +7,7 @@ import ScrollTop from '../../hooks/useScrollTop';
 export default function Posts({sort, filter}) {
   const [posts, setPosts] = React.useState([])
 
-  const baseURL = "" || 'https://localhost:3001'
+  const baseURL = 'https://localhost:3001'
   
   React.useEffect(()=> {
     ScrollTop()
