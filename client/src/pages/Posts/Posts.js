@@ -4,12 +4,15 @@ import Axios from 'axios'
 import Post from '../../components/Post/Post' 
 import ScrollTop from '../../hooks/useScrollTop';
 
+const awsURL = 'Socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com'
+const baseURL = awsURL || 'localhost:3001'
+
 export default function Posts({sort, filter}) {
   const [posts, setPosts] = React.useState([])
   
   React.useEffect(()=> {
     ScrollTop()
-    Axios.get("/posts")
+    Axios.get(`${baseURL}/posts`)
     .then(res => setPosts(res.data))
     .catch(err => console.log("test1", err))
   },[])
