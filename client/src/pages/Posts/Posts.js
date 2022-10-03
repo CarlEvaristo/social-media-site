@@ -9,7 +9,7 @@ export default function Posts({sort, filter}) {
   
   React.useEffect(()=> {
     ScrollTop()
-    Axios.get("http://localhost:3001/posts")
+    Axios.get("/posts")
     .then(res => setPosts(res.data))
     .catch(err => console.log("test1", err))
   },[])
