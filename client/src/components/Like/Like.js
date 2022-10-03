@@ -14,7 +14,7 @@ export default function Like({postid}) {
   const [isLiked, setIsLiked] = React.useState(false)
 
   React.useEffect(()=> {
-    Axios.get(`http://localhost:3001/like/${postid}`)
+    Axios.get(`/like/${postid}`)
       .then(response => {
         setLikes(response.data)
       })
@@ -27,9 +27,9 @@ export default function Like({postid}) {
 
   function handleLike(postId){
     isLiked ? console.log("like already exists") : 
-    Axios.post("http://localhost:3001/like", {username: context.username, postid:postId})
+    Axios.post("/like", {username: context.username, postid:postId})
       .then(res => {
-        Axios.get(`http://localhost:3001/like/${postid}`)
+        Axios.get(`/like/${postid}`)
         .then(res1 => {
           setLikes(res1.data)
           setIsLiked(true)
@@ -38,9 +38,9 @@ export default function Like({postid}) {
   }
 
   function handleUnlike(postId){
-      Axios.delete(`http://localhost:3001/like`, { data: { postid:postId, username:context.username} })
+      Axios.delete(`/like`, { data: { postid:postId, username:context.username} })
         .then(res => {
-          Axios.get(`http://localhost:3001/like/${postid}`)
+          Axios.get(`/like/${postid}`)
           .then(res2 => {
             setLikes(res2.data)
             setIsLiked(false)
