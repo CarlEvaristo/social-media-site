@@ -4,8 +4,9 @@ import Axios from 'axios'
 import Post from '../../components/Post/Post' 
 import ScrollTop from '../../hooks/useScrollTop';
 
-const baseURL = 'socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com'
+// const baseURL = 'socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com'
 // const baseURL = 'localhost:3001'
+const baseURL = ""
 
 export default function Posts({sort, filter}) {
   const [posts, setPosts] = React.useState([])
