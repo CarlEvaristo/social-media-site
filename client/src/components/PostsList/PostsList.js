@@ -3,6 +3,12 @@ import "./PostsList.css"
 import Axios from 'axios'
 import { Link } from "react-router-dom"
 
+const BASE_URL = 'Socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com' || 'localhost:3001' 
+Axios.create({ baseURL: BASE_URL, responseType: 'json' }) 
+
+// const awsURL = 'Socialmediaserver-env.eba-3v5vf2qa.us-east-1.elasticbeanstalk.com'
+// const baseURL = awsURL || 'localhost:3001'
+
 export default function PostsList() {
   const [posts, setPosts] = React.useState([])
 
